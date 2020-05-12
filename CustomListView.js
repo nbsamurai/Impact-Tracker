@@ -1,0 +1,27 @@
+import React from 'react';
+import {View, FlatList, StyleSheet} from 'react-native';
+import CustomRow from './CustomRow';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
+
+const CustomListview = ({itemList}) => (
+  <View style={styles.container}>
+    <FlatList
+      data={itemList}
+      renderItem={({item}) => (
+        <CustomRow
+          title={item.title}
+          description={item.description}
+          position={item.position}
+          image_url={item.image_url}
+        />
+      )}
+    />
+  </View>
+);
+
+export default CustomListview;
